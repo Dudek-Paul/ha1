@@ -1,5 +1,7 @@
 package htw.berlin.prog2.ha1;
 
+// Paul Dudek s0563692
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -88,6 +90,24 @@ class CalculatorTest {
         assertEquals(expected, actual);
     }
 
+    // Lösung von Aufgabe 1
+    @Test
+    @DisplayName("should display result after multiplying two positive multi-digit numbers")
+    void testPositiveMultiplication() {
+        Calculator calc = new Calculator();
+
+        calc.pressDigitKey(2);
+        calc.pressDigitKey(0);
+        calc.pressBinaryOperationKey("x");  // Zuvor ungetestete Funktionalität
+        calc.pressDigitKey(2);
+        calc.pressDigitKey(0);
+        calc.pressEqualsKey();
+
+        String expected = "400";
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+    }
 
     //TODO hier weitere Tests erstellen
 }
